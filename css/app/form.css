@@ -14,3 +14,7 @@ p {
 a{
     color: #eeeeee;
 }
+
+.form-control form-control-sm ml-3 w-75{
+    size:30%;
+}
