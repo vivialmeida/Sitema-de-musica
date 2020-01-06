@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Cadastro</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/terceiros/normalize.css">
+        <!-- MDB icon -->
+        <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Material Design Bootstrap -->
+        <link rel="stylesheet" href="css/mdb.min.css">
+        <!-- Your custom styles (optional) -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/app/app.css">
+        <link rel="stylesheet" href="css/app/form.css">
+        
+    </head>
+ <header>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark red scrolling-navbar">
+        <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Ínicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cadastro</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fab fa-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>   
+<body>
+     <!--Modal: Contact form-->
+  <div class="modal-dialog cascading-modal" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Header-->
+      <div class="modal-header primary-color white-text">
+        <h4 class="title">
+        <i class="fas fa-compact-disc"></i> Cadastro de Album </h4>
+        <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+          aria-label="Close"> 
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+
+        <!-- Material input Album -->
+        <div class="md-form form-sm">
+            <i class="fas fa-compact-disc fa-lg"></i>
+            <label for="formCadastro">Album</label>
+          <input type="text" id="album" class="form-control form-control-sm">
+        </div>
+
+        <!-- Material input Artista -->
+        <div class="md-form form-sm">
+          <i class="fas fa-user-alt"></i>
+          <input type="text" id="artista" class="form-control form-control-sm">
+          <label for="formCadastro">Artista</label>
+        </div>
+
+         <!-- Material input Descricao -->
+         <div class="md-form form-sm">
+            <i class="fas fa-edit"></i>
+            <input type="text" id="desc" class="form-control form-control-sm">
+            <label for="formCadastro">Descricao</label>
+          </div>
+
+     <!-- Material input faixas -->
+     <div class="md-form form-sm">
+        <i class="fas fa-music"></i>
+        <input type="text" id="qtd_faixas" class="form-control form-control-sm">
+        <label for="formCadastro">Quantidade de Faixas</label>
+      </div>
+
+      <!-- Material input faixas -->
+     <div class="md-form form-sm">
+        <i class="fas fa-calendar-alt"></i>
+        <input type="text" id="qtd_faixas" class="form-control form-control-sm">
+        <label for="formCadastro"> Ano</label>
+      </div>
+      
+      
+       <!-- Material input genero -->
+       <div class="md-form form-sm" >
+        <i class="fas fa-headphones"></i>
+        <input type="text" id="genero" class="form-control form-control-sm">
+        <label for="formCadastro">Genero</label>
+      </div>
+
+         <!-- Material input duracao -->
+      <div class="md-form form-sm">
+        <i class="far fa-clock"></i>
+        <input type="text" id="duracao" class="form-control form-control-sm">
+        <label for="formCadastro">Duracao</label>
+      </div>
+  
+
+        <div class="text-center mt-4 mb-2" >
+          <button class="btn btn-primary" data-toggle="modal" data-target="#centralModalSm">Adicionar Musicas
+            <i class="fa fa-send ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+  <!--/Modal: Contact form-->
+</div>
+
+<div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <!-- Change class .modal-sm to change the size of the modal -->
+  <div class="modal-dialog modal-sm" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">"Nome do Album"</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+
+</body>
+</html>
