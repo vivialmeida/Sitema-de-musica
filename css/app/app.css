@@ -3,9 +3,11 @@ body{
     height: 100%;
 }
 
-h1{
+h2{
     margin-top: 10%;
     margin-bottom: 5%;
+    color:honeydew
+    
 }
 
 .card{
