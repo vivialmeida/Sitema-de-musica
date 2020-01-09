@@ -11,6 +11,8 @@ let app = express();
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
+// app.use(express.static(path.join(__dirname, '/public')));
+
 //middleware ( chain of responsability <-> filtro <->Inteceptadores )
 
 app.use(bodyParser.urlencoded({extended: true} ));
