@@ -1,17 +1,34 @@
-let mysql = require('mysql');
+let pg = require('pg');
+var config = {
+    user: 'postgres',
+    database: 'postgres',
+    password: '123456',
+    schemas: 'emusic',
+    port: 5432
+};
+
+const pool = null;
 
 // solução 03: Usando classes
 class ConnectionFactory {
 
     constructor() {
-        this._conexao = mysql.createConnection({
+        this._conexao = new pg.Pool(config); 
+        console.log("Conectou")
+
+
+}
+
+    
+    // 
+    //     this._conexao = ps.createConnection({
           
-            host: 'localhost',
-            user: 'root',
-            password: 'root',
-            database: 'lojajs'
-        });
-    }
+    //         host: 'localhost',
+    //         user: 'postgres',
+    //         password: '123456',
+    //         database: 'emusic'
+    //     });
+    // }
 
 
     getConexao() {
@@ -29,7 +46,7 @@ module.exports = () => { return ConnectionFactory };
 
 const criaConexao =  function() {
     console.log('conexão estabelecida com o banco de dados');
-    return mysql.createConnection({
+    return ps.createConnection({
         host: 'localhost',
         user: 'root',
         password: 'root',
@@ -47,11 +64,11 @@ module.exports = function() {
 /* solucao 01 */
 
 /* 
-const mysql = require('mysql');
+const ps = require('ps');
 
 module.exports = function() {
     console.log('conexão estabelecida com o banco de dados');
-    return mysql.createConnection({
+    return ps.createConnection({
         host: 'localhost',
         user: 'root',
         password: 'root',

@@ -1,75 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <title>Músicas</title>
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="css/terceiros/normalize.css" type="text/css"/>
-    <!-- MDB icon -->
-    <link rel="icon" href="images/music-album.svg" type="image/x-icon"/>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    Material Design Bootstrap
-    <link rel="stylesheet" href="css/mdb.min.css" /> -->
-    <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="stylesheet" href="css/app/app.css"/>
-    
-</head>
-
-<!--Main Navigation-->
-<header>
-<base href="/">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark red scrolling-navbar">
-        <a class="navbar-brand" href="#"><strong>E-music</strong></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Ínicio <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cadastro">Cadastro</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/contato">Contato</a>
-              </li>
-            </ul>
-            <form class="form-inline">
-                <i class="fas fa-search" aria-hidden="true"></i>
-                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                  aria-label="Search">
-              </form>
-            <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fab fa-instagram"></i></a>
-                </li>
-            </ul>
-              
-        </div>
-    </nav>
-
-</header>
+<%- include ./cabecalho.ejs %>
 <!--Main Navigation-->
 
 <body class="container">
@@ -80,7 +9,7 @@
 
         <div class="col-lg-4">
             <div class="card border" style="width: 18rem;">
-                <a class="card-link" href="#">
+                <a class="card-link" href="/musicas">
                     <img class="card-img-top" src="images/music-player.svg" alt="Imagem de capa do card">
                     <div class="card-body">
                         <h5 class="card-title">músicas</h5>
@@ -91,7 +20,7 @@
 
         <div class="col-lg-4">
             <div class="card border" style="width: 18rem;">
-                <a class="card-link" href="#">
+                <a class="card-link" href="/artistas">
                     <img class="card-img-top" src="/images/music.svg" alt ="Imagem de capa do card">
                     <div class="card-body">
                         <h5 class="card-title">artistas</h5>
@@ -102,7 +31,7 @@
 
         <div class="col-lg-4">
             <div class="card border" style="width: 18rem;">
-                <a class="card-link" href="album.html">
+                <a class="card-link" href="/album">
                     <img class="card-img-top" src="images/music-album.svg" alt="Imagem de capa do card">
                     <div class="card-body">
                         <h5 class="card-title">álbuns</h5>
@@ -113,15 +42,4 @@
 
     </div>
   
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="/app/views/js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="/app/views/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="/app/views/js/mdb.min.js"></script>
-    <!-- Your custom scripts (optional) -->
-     <script type="text/javascript"></script>
-
-</body>
-
-</html> 
+<%- include ./rodape.ejs %>

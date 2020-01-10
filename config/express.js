@@ -6,8 +6,6 @@ let expressValidator = require('express-validator');
 
 let app = express();
 
-// app.use(express.static('public'));
-
 
 app.use(express.static('public'))
 app.set('view engine', 'ejs');
