@@ -3,11 +3,11 @@ var config = {
     user: 'postgres',
     database: 'postgres',
     password: '123456',
-    schemas: 'emusic',
+    // schemas: 'emusic',
     port: 5432
 };
 
-const pool = null;
+const pool = null;      
 
 // solução 03: Usando classes
 class ConnectionFactory {

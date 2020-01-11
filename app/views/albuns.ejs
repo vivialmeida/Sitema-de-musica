@@ -1,50 +1,49 @@
-<%- include ./cabecalho.ejs %>
+<%- include ./layout/cabecalho.ejs %>
 
 <body class="container">
 
     <h2 class="text-center">Álbuns</h2>
 
     <table class="table table-light">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Artistas</th>
-                <th scope="col">Faixas</th>
-                <th scope="col">Ano</th>
-                <th scope="col">Gênero</th>
-                <th scope="col">Duração</th>
-            </tr>
-        </thead>
-        <tbody class="tbody-light">
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Mark</td>
-                <td>Otto</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-            </tr>
-        </tbody>
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Nacionalidade</th>
+                    <th class="scope center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < lista.length; i++) { %>
+               
+                    <tr>
+                        <th scope="row">
+                            <%=i+1%>
+                        </th>
+                        <td>
+                            <%= lista[i].faixa %>
+                        </td>
+                        <td>
+                            <%= lista[i].duracao %>
+                        </td>
+                        <td>
+                            <%= lista[i].artista %>
+                        </td>
+                        <td>
+                            <a href="/albuns/edita/<%= lista[i].id %>" class="btn btn-outline-primary btn-sm">Editar</a>
+                           
+                            <form method="post" action="/albus/remove/<%= lista[i].id %>" class="float-left">
+                                <button type="submit"  class="btn btn-outline-danger btn-sm" 
+                                        onClick="return confirm('Confirmar a exclusão do album <%= lista[i].nome %>?')">Excluir</button>
+                               
+                            </form>
+    
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+
     </table>
 
-    <%- include ./rodape.ejs %>
+    <%- include ./layout/rodape.ejs %>

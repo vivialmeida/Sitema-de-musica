@@ -19,7 +19,6 @@ module.exports = function(app) {
         conexao.end();
     });
 
-    http://localhost:3000/artistas
 
     app.get('/artistas', function (req, resp) {
     
