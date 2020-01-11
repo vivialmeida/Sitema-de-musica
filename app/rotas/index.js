@@ -7,14 +7,14 @@ module.exports = function(app) {
     app.get('/musicas', function (req, resp) {
     
         let conexao = new app.infra.ConnectionFactory().getConexao();
-        let produtos = new app.repositorio.MusicasRepository(conexao);
+        let musicas = new app.repositorio.MusicaRepository(conexao);
     
-        produtos.todos(function (erros, resultado) { 
+        musicas.todos(function (erros, resultado) { 
     
             if (erros) {
                 console.log(erros);
             }
-            resp.render('musicas/listagem', {lista: resultado })
+            resp.render('musicas', {lista: resultado })
         });
         conexao.end();
     });
@@ -31,7 +31,22 @@ module.exports = function(app) {
             if (erros) {
                 console.log(erros);
             }
-            resp.render('musicas/artistas', {lista: resultado })
+            resp.render('artistas', {lista: resultado })
+        });
+        conexao.end();
+    });
+
+    app.get('/albuns', function (req, resp) {
+    
+        let conexao = new app.infra.ConnectionFactory().getConexao();
+        let albuns = new app.repositorio.AlbumRepository(conexao);
+    
+        albuns.todos(function (erros, resultado) { 
+    
+            if (erros) {
+                console.log(erros);
+            }
+            resp.render('albuns', {lista: resultado })
         });
         conexao.end();
     });

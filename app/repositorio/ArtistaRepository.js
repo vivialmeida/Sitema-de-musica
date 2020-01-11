@@ -30,7 +30,7 @@ class ArtistaRepository {
     }
 
     remove(artista, callback) {
-        this._conexao.query('delete from arttistas where id = ' + artista.id, callback);
+        this._conexao.query('delete from artistas where id = ' + artista.id, callback);
     }
 
 } 
