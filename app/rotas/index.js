@@ -2,24 +2,20 @@
 module.exports = function(app) {
     app.get('/', (req, resp) => resp.render('index'));
 
-
-
     app.get('/musicas', function (req, resp) {
-    
+
         let conexao = new app.infra.ConnectionFactory().getConexao();
         let musicas = new app.repositorio.MusicaRepository(conexao);
-    
-        musicas.todos(function (erros, resultado) { 
-    
+
+        musicas.todos(function (erros, resultado) {
+
             if (erros) {
                 console.log(erros);
             }
-            resp.render('musicas', {lista: resultado })
+            resp.render('musicas/listagem', { lista: resultado })
         });
         conexao.end();
     });
-
-    http://localhost:3000/artistas
 
     app.get('/artistas', function (req, resp) {
     
@@ -46,7 +42,7 @@ module.exports = function(app) {
             if (erros) {
                 console.log(erros);
             }
-            resp.render('albuns', {lista: resultado })
+            resp.render('albuns/listagem', {lista: resultado })
         });
         conexao.end();
     });
