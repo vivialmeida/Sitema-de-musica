@@ -1,4 +1,5 @@
-<%- include ./layout/cabecalho.ejs %>
+<%- include ../partials/cabecalho.ejs %>
+<%- include ../partials/navegacao.ejs %>
 
 <h2 class="text-center">Artistas</h2>
 
@@ -17,7 +18,7 @@
             <% for(var i=0; i < lista.length; i++) { %>
             <tr>
                 <th scope="row">
-                    <%= i+1 %>
+                    <%=i+1%>
                 </th>
                 <td>
                     <%= lista[i].nome %>
@@ -41,6 +42,4 @@
 
     </table>
 
-</body>
-
-<%- include ./rodape.ejs %>
+<%- include ../partials/rodape.ejs %>
