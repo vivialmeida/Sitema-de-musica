@@ -12,7 +12,7 @@ module.exports = function(app) {
             if (erros) {
                 console.log(erros);
             }
-            resp.render('/musicas/listagem', { lista: resultado })
+            resp.render('musicas/listagem', { lista: resultado })
         });
         conexao.end();
     });
@@ -27,7 +27,7 @@ module.exports = function(app) {
             if (erros) {
                 console.log(erros);
             }
-            resp.render('/artistas/listagem', { lista: resultado })
+            resp.render('artistas/listagem', { lista: resultado })
         });
         conexao.end();
     });
@@ -42,7 +42,7 @@ module.exports = function(app) {
             if (erros) {
                 console.log(erros);
             }
-            resp.render('/albuns/listagem', {lista: resultado })
+            resp.render('albuns/listagem', {lista: resultado })
         });
         conexao.end();
     });

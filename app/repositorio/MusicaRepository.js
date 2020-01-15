@@ -11,7 +11,7 @@ class MusicaRepository {
 
 
     todos(callback ) {
-      this._conexao.query('select emusic.musicas.id, faixa, duracao, nome from emusic.musicas inner join emusic.artistas on artista_id = artistas.id'
+      this._conexao.query('select emusic.musicas.id, musicas.nome, duracao, artistas.nome from emusic.musicas inner join emusic.artistas on artista_id = artistas.id'
       , callback);
       console.log('executou select');
     }

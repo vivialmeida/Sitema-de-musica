@@ -1,39 +1,49 @@
 <%- include ../partials/cabecalho.ejs %>
 <%- include ../partials/navegacao.ejs %>
 
-    <% if(errosValidacao) { %>
-      <ul>
-        <% for(var i=0; i < errosValidacao.length; i++) {%>
-         <li>
-            <%= errosValidacao[i].msg %>
-          </li>
-        <%}%>
-      </ul>
-    <%}%>
+<h2 class="text-center">Musicas</h2>
+
+<body class="container">
+
+    <div class="container">
+
+        <% if(errosValidacao) { %>
+           <div class="alert alert-danger"> 
+            <ul>
+                <% for(var i=0; i < errosValidacao.length; i++) {%>
+                    <li>
+                        <%= errosValidacao[i].msg %>
+                    </li>
+                    <%}%>
+            </ul>
+        </div> 
+       <%}%>
  
-   <form action="/produtos" method="post">
+
+    <form action="/musicas" method="post">
         <div class="form-row">
 
-            <% if(produto.id ) { %>
+            <% if(musicas.id ) { %>
                 <input type="hidden" id="id" name="id" value="<%=produto.id%>">
             <% } %>
              
             <div class="form-group col-md-9">
                 <label for="nome">Nome</label>
-                <input class="form-control" type="text" id="nome" name="nome" value="<%=produto.nome%>" placeholder="Informe o nome do Produto">
+                <input class="form-control" type="text" id="nome" name="nome" value="<%=musicas.nome%>" placeholder="Informe o nome da Musica">
             </div>
 
             <div class="form-group col-md-3">
-               <label for="preco">Preço</label>
-               <input class="form-control" type="text" id="preco" name="preco" value="<%=produto.preco%>" placeholder="9.90">
+               <label for="">duracao</label>
+               <input class="form-control" type="text" id="duracao" name="duracao" value="<%=musicas.duracao%>" placeholder="9.90">
             </div>
         </div>
 
         <div class="form-group">
             <label for="descricao">Descrição</label>
             <textarea class="form-control" cols="20" rows="10" id="descricao" name="descricao"
-                      placeholder="Descreva as características do produto"><%=produto.descricao%></textarea>
+                      placeholder="Descreva as características da musicas"><%=musicas.descricao%></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Salvar</button>
     </form>        
+  <div>
 <%- include ../partials/rodape.ejs %>
