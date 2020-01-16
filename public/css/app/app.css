@@ -53,3 +53,7 @@ h1, .card-title{
         margin-bottom: 5px;
     }
 }
+
+tbody{
+    color: white;
+}
