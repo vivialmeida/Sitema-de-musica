@@ -11,10 +11,11 @@
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Nacionalidade</th>
+                <th scope="col">Nacionalidade</th>
                 <th class="scope center">Ações</th>
             </tr>
         </thead>
-        <tbody >
+        <tbody class="table-dark" >
             <% for(var i=0; i < lista.length; i++) { %>
             <tr>
                 <th scope="row">
@@ -22,6 +23,9 @@
                 </th>
                 <td>
                     <%= lista[i].nome %>
+                </td>
+                <td>
+                    <%= lista[i].nacionalidade %>
                 </td>
                 <td>
                     <%= lista[i].nacionalidade %>

@@ -1,33 +1,87 @@
+module.exports = function (app) {
 
-module.exports = function(app) {
-    app.post('/musicass', function (req, resp) {
+    app.get('/musicas', function (req, resp) {
 
-        let musicas = req.body;
-        console.log(musicas);
+        let conexao = new app.infra.ConnectionFactory().getConexao();
+        let musicas = new app.repositorio.MusicaRepository(conexao);
 
-        req.assert('nome', 'Nome do produto é obrigatório.').notEmpty();
-        req.assert('duracao', 'duracao no Formato inválido').isTime();
-        //req.assert('dataCadastro', 'Data inválida').isDate();
+        musicas.todos(function (erros, resultado) {
+
+            if (erros) {
+                console.log(erros);
+            }
+            resp.render('musicas/listagem', {lista: resultado.rows});
+        });
+        conexao.end();
+    });
+
+    /* ---------------------------------------------------------------- */
+    app.get('/musicas/form', function (req, resp) {
+        resp.render('musicas/form-cadastro', {errosValidacao: {},  artista: {} });
+    });
+
+
+    app.post('/musicas', function (req, resp) {
+
+        let artista = req.body;
+        console.log(artista);
+
+        req.assert('faixa', 'Nome do faixa é obrigatório.').notEmpty();
 
         let erros = req.validationErrors();
 
         if (erros) {
-            resp.render('musicas/form-cadastro', { errosValidacao: erros, musicas: musicas });
+            resp.render('musicas/form-cadastro', { errosValidacao: erros, musica: musica });
             return;
         }
 
 
         let conexao = new app.infra.ConnectionFactory().getConexao();
-        let musica = new app.repositorio.MusicaRepository(conexao);
+        let musicas = new app.repositorio.MusicaRepository(conexao);
 
-        musica.salva(musicas, function (erros, resultados) {
-           //resp.render('produtos/listagem' );   
-           resp.redirect('/musicas/listagem');
+        musicas.salva(musicas, function (erros, resultados) {
+           //resp.render('artistas/listagem' );   
+           resp.redirect('/musicas');
         });
 
         conexao.end();
 
     });
-   
-}
 
+    app.post('/musicas/remove/(:id)', function (req, resp) {
+        let musica = {
+            id: req.params.id
+        }
+
+        let conexao = new app.infra.ConnectionFactory().getConexao();
+        let musicas = new app.repositorio.MusicaRepository(conexao);
+
+        musicas.remove(musica, function (erros, resultados) {
+            resp.redirect('/musicas');
+        });
+    });
+
+
+    app.get('/musicas/edita/(:id)', function (req, resp) {
+        
+
+        let conexao = new app.infra.ConnectionFactory().getConexao();
+        let musicas = new app.repositorio.MusicaRepository(conexao);
+
+        musicas.porId(req.params.id, function (erros, resultado) {
+            if (erros ) {
+                console.log(erros);
+            }
+            resp.render('musicas/form-cadastro', {errosValidacao: erros,  
+                                                    musica: {
+                                                        id: resultado.rows.id,
+                                                        faixa: resultado.rows.faixa,
+                                                        duracao: resultado.rows.duracao } 
+            });
+            console.log(resultado);
+        });
+        conexao.end();
+    });
+
+
+}
