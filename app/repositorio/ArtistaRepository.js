@@ -6,31 +6,31 @@ class ArtistaRepository {
     }
 
     porId(id, callback ) {
-        this._conexao.query(`select * from emusic.artistas where id = ${id}`, callback);
+        this._conexao.query('select artista_id, nome, nacionalidade from emusic.artista where artista_id = ' + id , callback);
     }
 
 
     todos(callback ) {
-      this._conexao.query('select emusic.artistas.artistas_id, nome, nacionalidade from emusic.artistas', callback);
+      this._conexao.query('select artista_id, nome, nacionalidade from emusic.artista', callback);
     }
 
    
     salva(artista, callback) {
-        console.log('ID ' + artista.id);
+        console.log(artista.id);
 
-        // if ( (artista.hasOwnProperty('id')) && (artista.artistas_id > 0) ) {
-        //        this._conexao.query('update emusic.artistas set ? where emusic.artistas.id = ' + artista.id, artista, callback);
-        //        console.log('executou update');
+        if ( (artista.hasOwnProperty('id')) && (artista.id > 0) ) {
+                this._conexao.query('update emusic.artista set ? where artista_id = ' + artista.id, artista, callback);
+                console.log('executou update');
 
-        // } else {
-            this._conexao.query('insert into emusic.artistas set ?', artista, callback);
+        } else {
+            this._conexao.query('insert into emusic.artista set ?', artista, callback);
             console.log('executou insert');
 
-        // }    
+        }    
     }
 
     remove(artista, callback) {
-        this._conexao.query('delete from emusic.artistas where emusic.artistas.id = ' + artista.id, callback);
+        this._conexao.query('delete from emusic.artista where artista_id = ' + artista.id, callback);
     }
 
 } 

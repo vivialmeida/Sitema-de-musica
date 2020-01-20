@@ -14,7 +14,7 @@ app.set('views', './app/views');
 
 
 //middleware ( chain of responsability <-> filtro <->Inteceptadores )
-
+app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true} ));
 app.use(expressValidator() );
 // req -> bodyParser -> validator -> rotas -> DAO -> view (ejs)

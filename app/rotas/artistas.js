@@ -62,23 +62,24 @@ module.exports = function (app) {
     });
 
 
-    app.get('/artista/edita/(:id)', function (req, resp) {
+    app.get('/artistas/edita/(:id)', function (req, resp) {
         
 
         let conexao = new app.infra.ConnectionFactory().getConexao();
         let artistas = new app.repositorio.ArtistaRepository(conexao);
 
         artistas.porId(req.params.id, function (erros, resultado) {
+            
             if (erros ) {
                 console.log(erros);
             }
             resp.render('artistas/form-cadastro', {errosValidacao: erros,  
                                                     artista: {
-                                                        id: resultado.rows.id,
+                                                        id: resultado.rows.artista_id,
                                                         nome: resultado.rows.nome,
                                                         nacionalidade: resultado.rows.nacionalidade } 
             });
-            console.log(resultado);
+            console.log(resultado.rows);
         });
         conexao.end();
     });

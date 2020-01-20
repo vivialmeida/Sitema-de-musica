@@ -3,14 +3,11 @@
 
 <h2 class="text-center">Artistas</h2>
 
-<body class="container">
-
     <table class="table">
         <thead class="table-primary">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Nacionalidade</th>
                 <th scope="col">Nacionalidade</th>
                 <th class="scope center">Ações</th>
             </tr>
@@ -28,12 +25,9 @@
                     <%= lista[i].nacionalidade %>
                 </td>
                 <td>
-                    <%= lista[i].nacionalidade %>
-                </td>
-                <td>
-                    <a href="/artista/edita/<%= lista[i].id %>" class="btn btn-outline-primary btn-sm">Editar</a>
+                    <a href="/artistas/edita/<%= lista[i].artista_id %>" class="btn btn-outline-primary btn-sm">Editar</a>
 
-                    <form method="post" action="/artistas/remove/<%= lista[i].id %>" class="float-left">
+                    <form method="post" action="/artistas/remove/<%= lista[i].artista_id %>" class="float-left">
                         <button type="submit" class="btn btn-outline-danger btn-sm"
                             onClick="return confirm('Confirmar a exclusão do artista <%= lista[i].nome %>?')">Excluir</button>
 
