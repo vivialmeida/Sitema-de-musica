@@ -22,8 +22,8 @@ module.exports = function (app) {
 
 
     app.post('/artistas', function (req, resp) {
-
         let artista = req.body;
+        console.log('post');
         console.log(artista);
 
         req.assert('nome', 'Nome do artista é obrigatório.').notEmpty();
@@ -79,6 +79,7 @@ module.exports = function (app) {
                                                         nome: resultado.rows.nome,
                                                         nacionalidade: resultado.rows.nacionalidade } 
             });
+            console.log('porId');
             console.log(resultado.rows);
         });
         conexao.end();

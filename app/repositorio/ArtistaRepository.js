@@ -18,7 +18,7 @@ class ArtistaRepository {
     salva(artista, callback) {
         console.log(artista.id);
 
-        if ( (artista.hasOwnProperty('id')) && (artista.id > 0) ) {
+        if ( (artista.hasOwnProperty('artista_id')) && (artista.id > 0) ) {
                 this._conexao.query('update emusic.artista set ? where artista_id = ' + artista.id, artista, callback);
                 console.log('executou update');
 
