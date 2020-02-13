@@ -63,12 +63,14 @@ module.exports = function (app) {
 
 
     app.get('/artistas/edita/(:id)', function (req, resp) {
-        
+
 
         let conexao = new app.infra.ConnectionFactory().getConexao();
         let artistas = new app.repositorio.ArtistaRepository(conexao);
 
         artistas.porId(req.params.id, function (erros, resultado) {
+            console.log('porId');
+            console.log(resultado.rows);
             
             if (erros ) {
                 console.log(erros);
@@ -79,8 +81,6 @@ module.exports = function (app) {
                                                         nome: resultado.rows.nome,
                                                         nacionalidade: resultado.rows.nacionalidade } 
             });
-            console.log('porId');
-            console.log(resultado.rows);
         });
         conexao.end();
     });

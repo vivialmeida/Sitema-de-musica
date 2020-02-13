@@ -3,15 +3,16 @@ class MusicaRepository {
     
     constructor(conexao) {
        this._conexao = conexao;
+       this._select = 'select emusic.musica.musica_id, faixa, duracao, artista.nome, ano from emusic.musica, emusic.artista ';
     }
 
     porId(id, callback ) {
-        this._conexao.query(`select * from emusic.musicas where id = ${id}`, callback);
+        this._conexao.query(`${this._select} where musica_id = ${id}`, callback);
     }
 
 
     todos(callback ) {
-      this._conexao.query('select emusic.musicas.musicas_id, musicas.faixa, duracao, artista.nome from emusic.musicas inner join emusic.artista on artista.artista_id = musicas.artista_id'  , callback);
+      this._conexao.query(this._select , callback);
       console.log('executou select');
     }
 
@@ -20,18 +21,18 @@ class MusicaRepository {
         console.log('ID ' + musica.id);
 
         if ( (musica.hasOwnProperty('id')) && (musica.id > 0) ) {
-               this._conexao.query('update emusic.musicas set ? where id = ' + musica.id, musica, callback);
+               this._conexao.query('update emusic.musica set ? where musica_id = ' + musica.id, musica, callback);
                console.log('executou update');
 
         } else {
-            this._conexao.query('insert into emusic.musicas set ?', musica, callback);
+            this._conexao.query('insert into emusic.musica set ?', musica, callback);
             console.log('executou insert');
 
         }    
     }
 
     remove(musica, callback) {
-        this._conexao.query('delete from emusic.musicas where id = ' + musica.id, callback);
+        this._conexao.query('delete from emusic.musica where musica_id = ' + musica.id, callback);
     }
 
 } 

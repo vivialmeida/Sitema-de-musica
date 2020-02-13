@@ -11,6 +11,7 @@ module.exports = function (app) {
                 console.log(erros);
             }
             resp.render('musicas/listagem', {lista: resultado.rows});
+            console.log({lista: resultado.rows});
         });
         conexao.end();
     });

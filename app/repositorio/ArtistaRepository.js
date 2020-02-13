@@ -3,15 +3,16 @@ class ArtistaRepository {
     
     constructor(conexao) {
        this._conexao = conexao;
+       this._select = 'select artista_id, nome, nacionalidade from emusic.artista ';
     }
 
     porId(id, callback ) {
-        this._conexao.query('select artista_id, nome, nacionalidade from emusic.artista where artista_id = ' + id , callback);
+        this._conexao.query(`${this._select} where artista_id = ${id}` , callback);
     }
 
 
     todos(callback ) {
-      this._conexao.query('select artista_id, nome, nacionalidade from emusic.artista', callback);
+      this._conexao.query(this._select, callback);
     }
 
    
