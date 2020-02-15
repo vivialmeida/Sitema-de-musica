@@ -23,25 +23,25 @@
     <form action="/musicas" method="post">
         <div class="form-row">
 
-            <% if(musicas.id ) { %>
-                <input type="hidden" id="id" name="id" value="<%=produto.id%>">
+            <% if(musica.id ) { %>
+                <input type="hidden" id="id" name="id" value="<%=musica.id%>">
             <% } %>
              
             <div class="form-group col-md-9">
                 <label for="nome">Nome</label>
-                <input class="form-control" type="text" id="nome" name="nome" value="<%=musicas.nome%>" placeholder="Informe o nome da Musica">
+                <input class="form-control" type="text" id="nome" name="nome" value="<%=musica.nome%>" placeholder="Informe o nome da Musica">
             </div>
 
             <div class="form-group col-md-3">
-               <label for="">duracao</label>
-               <input class="form-control" type="text" id="duracao" name="duracao" value="<%=musicas.duracao%>" placeholder="9.90">
+               <label for="">Duração</label>
+               <input class="form-control" type="text" id="duracao" name="duracao" value="<%=musica.duracao%>" placeholder="9.90">
             </div>
         </div>
 
         <div class="form-group">
             <label for="descricao">Descrição</label>
             <textarea class="form-control" cols="20" rows="10" id="descricao" name="descricao"
-                      placeholder="Descreva as características da musicas"><%=musicas.descricao%></textarea>
+                      placeholder="Descreva as características da musica"><%=musica.descricao%></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Salvar</button>
     </form>        

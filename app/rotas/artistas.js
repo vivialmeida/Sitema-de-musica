@@ -77,7 +77,7 @@ module.exports = function (app) {
             }
             resp.render('artistas/form-cadastro', {errosValidacao: erros,  
                                                     artista: {
-                                                        id: resultado.rows.artista_id,
+                                                        id: resultado.rows.id,
                                                         nome: resultado.rows.nome,
                                                         nacionalidade: resultado.rows.nacionalidade } 
             });
