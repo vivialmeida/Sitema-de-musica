@@ -11,7 +11,7 @@
     "body-parser": "^1.19.0",
     "consign": "^0.1.6",
     "ejs": "^2.5.7",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "express-validator": "^4.3.0",
     "mysql": "^2.15.0",
     "pg": "^7.17.1"
